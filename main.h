@@ -2,6 +2,18 @@
 #define MAIN_H
 #include <stdarg.h>
 
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+/**
+ * struct format - structure for printing various types
+ * @a: type to print
+ * @f: function to print
+ */
+
 typedef struct format
 {
 	char a;
