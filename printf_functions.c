@@ -11,7 +11,7 @@
  * @base: base
 (* Return: Return characters printed
  */
-int print_strings(char *a, int base)
+int print_strings(char *a)
 {
 	int counter = 0;
 
@@ -52,6 +52,7 @@ void my_reverse(char str[], int len)
  */
 int my_itoa(va_list ap, int base)
 {
+	int n;
 char charArray[128];
 char * str = charArray;
 int num = va_arg(ap, int);
@@ -65,10 +66,11 @@ str[i + 1] = '\0';
 return 0;
 }
 
-if (num < 0 && base == 10) {
-isNegative = true;
-num = -num;
-}
+n = 1;
+    if (num * n < 0 && base == 10) {
+        isNegative = true;
+        num = -num;
+    }
 
 while (num != 0) {
 int rem = num % base;
@@ -82,7 +84,7 @@ str[i++] = '-';
 
 str[i] = '\0';
 my_reverse(str, i);
-print_strings(str,base);
+print_strings(str);
 return 0;
 }
 
@@ -95,6 +97,7 @@ return 0;
  */
 int my_utoa(va_list ap, int base)
 {
+
 char charArray[128];
 char * str = charArray;
 unsigned int num = va_arg(ap, unsigned int);
@@ -109,11 +112,6 @@ return 0;
 
 }
 
-if (num < 0 && base == 10) {
-isNegative = true;
-num = -num;
-}
-
 while (num != 0) {
 int rem = num % base;
 str[i++] = (rem > 9)? (rem-10) + 'A' : rem + '0';
@@ -125,7 +123,7 @@ str[i++] = '-';
 
 str[i] = '\0';
 my_reverse(str, i);
-print_strings(str,base);
+print_strings(str);
 return 0;
 
 }

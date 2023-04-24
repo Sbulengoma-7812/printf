@@ -1,5 +1,4 @@
 #include "main.h"
-#include "printf_functions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -15,9 +14,11 @@
 
 int print_char(va_list a, int base)
 {
+	int b = base * 1;
 	char ap = va_arg(a, int);
+
 	putchar(ap);
-	return (1);
+	return (1 * (b / base));
 }
 
 /**
@@ -29,6 +30,7 @@ int print_char(va_list a, int base)
 
 int print_string(va_list a, int base)
 {
+	int b = base * 1;
 	int counter = 0;
 	char *ap = va_arg(a, char *);
 
@@ -37,7 +39,7 @@ int print_string(va_list a, int base)
 		putchar(ap[counter]);
 		counter++;
 	}
-	return (counter);
+	return (counter * (b / base));
 }
 
 /**
@@ -47,11 +49,11 @@ int print_string(va_list a, int base)
  */
 int _printf(const char * const format, ...)
 {
-	int counter1 = 0, counter2, base = 10, len;
+	int counter1 = 0, counter2, base = 10;
 	va_list ap;
-	type1 arr1[] = {{'c', print_char}, {'s', print_string}, {'i', my_itoa},
-		{'d', my_itoa},{'b', my_utoa}, {'u', my_utoa}, {'o', my_utoa},
-		{'x', my_utoa},{'X', my_utoa}, {'%', print_char}, {'\0', NULL}};
+	type1 arr1[] = {{'c', print_char}, {'s', print_string}, {'i', my_itoa}
+		, {'d', my_itoa}, {'b', my_utoa}, {'u', my_utoa}, {'o', my_utoa}
+		, {'x', my_utoa}, {'X', my_utoa}, {'%', print_char}, {'\0', NULL}};
 	va_start(ap, format);
 	while (format != NULL && format[counter1] != '\0')
 	{
@@ -80,7 +82,7 @@ int _printf(const char * const format, ...)
 						counter1++;
 						break;
 					}
-					arr1[counter2].f(ap,base);
+					arr1[counter2].f(ap, base);
 					counter1++;
 					break;
 				}

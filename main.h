@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <stdarg.h>
 
 typedef struct format
 {
@@ -9,7 +10,7 @@ typedef struct format
 
 int print_char(va_list a, int base);
 int print_string(va_list a, int base);
-int print_strings(char *a, int base);
+int print_strings(char *a);
 void my_reverse(char str[], int len);
 int my_itoa(va_list ap, int base);
 int my_utoa(va_list ap, int base);
