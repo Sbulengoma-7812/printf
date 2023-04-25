@@ -57,6 +57,9 @@ int _fprintf(const char * const format, va_list ap)
 		, {'d', my_itoa}, {'b', my_utoa}, {'u', my_utoa}, {'o', my_utoa}
 		, {'x', my_utoa}, {'X', my_utoa}, {'%', print_char}, {'\0', NULL}};
 
+	if (format == NULL || !format[counter1 + 1])
+		return (-1);
+
 	while (format != NULL && format[counter1] != '\0')
 	{
 		if (format[counter1] != '%')
