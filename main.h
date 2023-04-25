@@ -28,13 +28,14 @@
 typedef struct format
 {
 	char a;
-	int (*f)(va_list, int);
+	int (*f)(va_list, char);
 } type1;
-int print_char(va_list a, int base);
-int print_string(va_list a, int base);
+int print_char(va_list a, char b);
+int print_string(va_list a, char b);
 int print_strings(char *a);
 void my_reverse(char str[], int len);
-int my_itoa(va_list ap, int base);
-int my_utoa(va_list ap, int base);
+int my_itoa(va_list ap, char b);
+int my_utoa(va_list ap, char b);
 int _printf(const char * const format, ...);
+int _fprintf(const char * const format, va_list ap);
 #endif
