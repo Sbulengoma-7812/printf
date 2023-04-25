@@ -26,6 +26,7 @@
  */
 struct format
 {
+<<<<<<< HEAD
 	char format;
 	int (*fn)(va_list, char[], int, int, int, int);
 };
@@ -39,6 +40,19 @@ struct format
  */
 typedef struct format format_t;
 
+=======
+	char a;
+	int (*f)(va_list, char);
+} type1;
+int print_char(va_list a, char b);
+int print_string(va_list a, char b);
+int print_strings(char *a);
+void my_reverse(char str[], int len);
+int my_itoa(va_list ap, char b);
+int my_utoa(va_list ap, char b);
+int _printf(const char * const format, ...);
+int _fprintf(const char * const format, va_list ap);
+>>>>>>> 58c0e1d547e56d2e948f634b2ee6175f1d923092
 int _printf(const char *format, ...);
 int handle_print(const char *format, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
