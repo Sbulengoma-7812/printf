@@ -64,7 +64,7 @@ void my_reverse(char str[], int len)
  */
 int my_itoa(va_list ap, char b)
 {
-	int base, rem, c = 0, i = 0, int num = va_arg(ap, int);
+	int base, rem, c = 0, i = 0, num = va_arg(ap, int);
 	char charArray[128];
 	char *str = charArray;
 	bool isNegative = false;
