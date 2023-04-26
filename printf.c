@@ -33,8 +33,12 @@ int print_pct(va_list ap, char b)
 	(void)ap;
 
 	if (b)
-		return (write(1, "%", 1));
-	return (write(1, "%", 1));
+	{
+		_putchar('%');
+		return (1);
+	}
+	_putchar('%');
+	return (1);
 }
 
 
@@ -74,7 +78,7 @@ int _fprintf(const char * const format, va_list ap)
 	int counter1 = 0, counter2, counter3 = 0;
 	type1 arr1[] = {{'c', print_char}, {'s', print_string}, {'i', my_itoa}
 		, {'d', my_itoa}, {'b', my_utoa}, {'u', my_utoa}, {'o', my_utoa}
-		, {'x', my_utoa}, {'X', my_utoa}, {'%', print_char}, {'\0', NULL}};
+		, {'x', my_utoa}, {'X', my_utoa}, {'%', print_pct}, {'\0', NULL}};
 
 	if (format == NULL || !format[counter1 + 1])
 		return (-1);
