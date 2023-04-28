@@ -75,7 +75,7 @@ int print_string(va_list a, char b)
  */
 int _fprintf(const char * const format, va_list ap)
 {
-	int counter1 = 0, counter2, counter3 = 0;
+	int counter1 = 0, counter2, counter3 = 0, counter4 = 0;
 	type1 arr1[] = {{'c', print_char}, {'s', print_string}, {'i', my_itoa}
 		, {'d', my_itoa}, {'b', my_utoa}, {'u', my_utoa}, {'o', my_utoa}
 		, {'x', my_utoa}, {'X', my_utoa}, {'%', print_pct}, {'\0', NULL}};
@@ -86,7 +86,10 @@ int _fprintf(const char * const format, va_list ap)
 	while (format != NULL && format[counter1] != '\0')
 	{
 		if (format[counter1] != '%')
+		{
 			_putchar(format[counter1]);
+			counter3++;
+		}
 		else if (format[counter1] == '%' && format[counter1 + 1] == '\0')
 			_putchar(format[counter1]);
 		else if (format[counter1] == '%' && format[counter1 + 1] != '\0')
@@ -96,7 +99,7 @@ int _fprintf(const char * const format, va_list ap)
 			{
 				if (arr1[counter2].a == format[counter1 + 1])
 				{
-					arr1[counter2].f(ap, format[counter1 + 1]);
+					counter4 = counter4 + arr1[counter2].f(ap, format[counter1 + 1]);
 					counter1++;
 					break;
 				}
@@ -106,9 +109,8 @@ int _fprintf(const char * const format, va_list ap)
 				_putchar('%');
 		}
 		counter1++;
-		counter3++;
 	}
-	return (counter3);
+	return (counter3 + counter4);
 }
 
 /**
