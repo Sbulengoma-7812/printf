@@ -21,7 +21,6 @@ int _putchar(char c)
 /**
  * print_strings - printf() with string parameter
  * @a: string pointer to be printed
- * @base: base
 (* Return: Return characters printed
  */
 int print_strings(char *a)
@@ -60,6 +59,8 @@ void my_reverse(char str[], int len)
  * my_itoa - itoa(int num, char* str, int base). itoa with int
  * @ap: Number to be converted to string
  * @b: strlen(str)
+ * a blank line
+ * Description: Longer description of the function)
 (* Return: Print string
  */
 int my_itoa(va_list ap, char b)
@@ -99,21 +100,20 @@ int my_itoa(va_list ap, char b)
 		str[i++] = '-';
 	str[i] = '\0';
 	my_reverse(str, i);
-	while (str[c] != '\0')
+	for (c = 0; str[c] != '\0'; c++)
 	{
 		_putchar(str[c]);
-		c++;
 	}
 	return (c);
 }
 
  /**
- * my_utoa - itoa(unsigned int num, char* str, int base).
- * @num: unsigned int to be converted to string
- * @str: Resulting string
- * @base: strlen(str)
-(* Return: string
+ * my_utoa - Reverse string
+ * @ap: String to reverse
+ * @b: strlen(str)
+ * Return: Reversed string
  */
+
 int my_utoa(va_list ap, char b)
 {
 	int base, c = 0, i = 0;
@@ -141,7 +141,7 @@ int my_utoa(va_list ap, char b)
 	{
 		int rem = num % base;
 
-		str[i++] = (rem > 9) ? (rem - 10) + 'A' : rem + '0';
+		str[i++] = (rem > 9) ? (rem - 10) + 'a' : rem + '0';
 		num = num / base;
 	}
 

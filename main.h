@@ -24,6 +24,7 @@ void my_reverse(char str[], int len);
 int my_itoa(va_list ap, char b);
 int my_utoa(va_list ap, char b);
 int _printf(const char * const format, ...);
+int print_rot13(va_list a, char b);
 int _fprintf(const char * const format, va_list ap);
 int _putchar(char c);
 int print_pct(va_list ap, char b);
