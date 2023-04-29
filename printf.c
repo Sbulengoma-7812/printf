@@ -78,7 +78,7 @@ int _fprintf(const char * const format, va_list ap)
 	int counter1 = 0, counter2, counter3 = 0, counter4 = 0;
 	type1 arr1[] = {{'c', print_char}, {'s', print_string}, {'i', my_itoa}
 		, {'d', my_itoa}, {'b', my_utoa}, {'u', my_utoa}, {'o', my_utoa}
-		, {'R', print_rot13}
+		, {'R', print_rot13}, {'r', print_reverse}
 		, {'x', my_utoa}, {'X', my_utoa}, {'%', print_pct}, {'\0', NULL}};
 
 	if (format == NULL || !format[counter1 + 1])

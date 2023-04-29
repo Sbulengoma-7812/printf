@@ -17,6 +17,9 @@ typedef struct format
 	char a;
 	int (*f)(va_list, char);
 } type1;
+
+int print_reverse(va_list ap, char b);
+int reverse_string(char *ap);
 int print_char(va_list a, char b);
 int print_string(va_list a, char b);
 int print_strings(char *a);
